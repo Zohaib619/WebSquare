@@ -39,6 +39,7 @@
 <script>
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
     setup() {
         let form = reactive({
@@ -50,11 +51,12 @@ export default {
         });
         let errors = ref([]);
         const router = useRouter();
+        const store = useStore();
         // calling api
         const register = async () => {
             await axios.post("api/register", form).then(res => {
                 if (res.data.status) {
-                    localStorage.setItem('token', res.data.data.token);
+                    store.dispatch("setToken", res.data.data.token)
                     router.push({ name: 'Home' })
                 } else {
                     errors.value = res.data.message;

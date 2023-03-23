@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router';
-
+import store from './Store';
 // Importing all pages route
 import login from "./Layouts/Login.vue";
 import register from "./Layouts/Register.vue";
@@ -69,10 +69,10 @@ const router = createRouter({
 
 // check if route have token
 router.beforeEach((to,from) => {
-    if(to.meta.AuthToken && !localStorage.getItem('token')){
+    if(to.meta.AuthToken && store.getters.getToken == 0){
         return { name: "Login" }
     }
-    if(to.meta.AuthToken == false && localStorage.getItem('token')){
+    if(to.meta.AuthToken == false && store.getters.getToken != 0){
         return { name: "Home" }
     }
 })
