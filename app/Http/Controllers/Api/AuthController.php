@@ -11,15 +11,6 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    function api_response($status, $message, $data)
-    {
-        $response = [
-            "status" => $status,
-            "message" => $message,
-            "data" => $data
-        ];
-        return response()->json($response);
-    }
     // User Register
     function register(Request $req)
     {
@@ -32,7 +23,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $this->api_response(false, $validator->errors(), null);
+            return api_response(false, $validator->errors(), null);
         }
 
         // creating user
@@ -44,7 +35,7 @@ class AuthController extends Controller
         $user->save();
         $result['user'] = $user;
         $result['token'] = $user->createToken('my-app')->plainTextToken;
-        return $this->api_response(true, 'User Registered Successfully', $result);
+        return api_response(true, 'User Registered Successfully', $result);
     }
 
     // login user
@@ -56,7 +47,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $this->api_response(false, $validator->errors(), null);
+            return api_response(false, $validator->errors(), null);
         }
 
         // Authorizing user
@@ -64,9 +55,9 @@ class AuthController extends Controller
             $user = Auth::user();
             $result['user'] = $user;
             $result['token'] = $user->createToken('my-app')->plainTextToken;
-            return $this->api_response(true, 'User Login Successfully', $result);
+            return api_response(true, 'User Login Successfully', $result);
         } else {
-            return $this->api_response(false, 'Invalid Credentials', null);
+            return api_response(false, 'Invalid Credentials', null);
         }
     }
 }
