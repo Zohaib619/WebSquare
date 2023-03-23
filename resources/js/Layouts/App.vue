@@ -2,7 +2,7 @@
 
 <template>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" v-if="$store.getters.getToken != 0">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5" v-if="$store.getters.getToken != 0">
         <div class="container">
             <a class="navbar-brand" href="#">Web Square </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
