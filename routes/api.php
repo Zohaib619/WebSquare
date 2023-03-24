@@ -28,5 +28,6 @@ Route::controller(AuthController::class)->group(function(){
 
 // Customer Route
 Route::controller(CustomerController::class)->group(function(){
+    Route::get('customers', 'all_customers');
     Route::post('add-customer', 'add_customer');
 });

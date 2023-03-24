@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
+    // fetch all customer
+    function all_customers(){
+        $customers = Customer::all();
+        if(!$customers->isEmpty()){
+            return api_response(true, "Customer Data found", $customers);
+        }else{
+            return api_response(true, "Customer Data not found", null);
+        }
+    }
     // Add customer
     function add_customer(Request $req){
         $validator = Validator::make($req->all(), [

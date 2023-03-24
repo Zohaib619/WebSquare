@@ -53,16 +53,23 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Zohaib</td>
-                    <td>ZOhaib@gmail.cpm,</td>
-                    <td>03362531545</td>
+            <tbody v-if="this.customers.length > 0">
+                <tr v-for="(customer, index) in this.customers" :key="index">
+                    <td> {{ customer.id }} </td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
                     <td>
                         <button class="btn btn-danger">Delete</button>
+
+                        <!-- Edit Customer -->
                         <button class="btn btn-primary ms-2">Edit</button>
                     </td>
+                </tr>
+            </tbody>
+            <tbody v-else>
+                <tr>
+                    <td class="text-center" colspan="6"> <h4>Loading...</h4>  </td>
                 </tr>
             </tbody>
         </table>
@@ -92,7 +99,26 @@ export default {
         return {
             customer,
             add_customer,
-            error
+            error,
+        }
+        
+    },
+    // fetching data
+    data(){
+        return {
+            customers: []
+        }
+    },
+    mounted(){
+        this.get_customers();
+    },
+    methods: {
+        // fetching customer 
+        get_customers(){
+            axios.get("api/customers").then(res => {
+                this.customers = res.data.data;
+                console.log(this.customers);
+            })
         }
     }
 }
