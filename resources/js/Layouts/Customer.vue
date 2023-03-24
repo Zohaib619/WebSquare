@@ -61,7 +61,6 @@
                     <td>{{ customer.phone }}</td>
                     <td>
                         <button class="btn btn-danger">Delete</button>
-
                         <!-- Edit Customer -->
                         <button class="btn btn-primary ms-2">Edit</button>
                     </td>

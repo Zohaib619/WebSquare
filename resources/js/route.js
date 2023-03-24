@@ -6,7 +6,10 @@ import register from "./Layouts/Register.vue";
 import home from "./Layouts/Home.vue";
 import customer from "./Layouts/Customer.vue";
 import sale from "./Layouts/Sale.vue";
-import product from "./Layouts/Product.vue";
+
+// Product  
+import product from "./Layouts/Product/index.vue";
+import productAdd from "./Layouts/Product/add.vue";
 
 // naming routes
 const routes = [
@@ -38,6 +41,14 @@ const routes = [
         path: "/product",
         name: "Product",
         component: product,
+        meta: {
+            AuthToken: true
+        }
+    },
+    {
+        path: "/product/add",
+        name: "Product_Add",
+        component: productAdd,
         meta: {
             AuthToken: true
         }

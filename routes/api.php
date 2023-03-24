@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{CustomerController,AuthController};
+use App\Http\Controllers\Api\{CustomerController,AuthController, ProductController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +30,11 @@ Route::controller(AuthController::class)->group(function(){
 Route::controller(CustomerController::class)->group(function(){
     Route::get('customers', 'all_customers');
     Route::post('add-customer', 'add_customer');
+});
+
+// Product Route
+Route::controller(ProductController::class)->group(function(){
+    Route::get('products', 'all_products');
+    Route::post('product-add', 'add_product');
+
 });
