@@ -28,6 +28,7 @@ class AuthController extends Controller
 
         // creating user
         $user = new User();
+        $user->avator = "https://eu.ui-avatars.com/api/?name=$req->name&size=250";
         $user->name = $req->name;
         $user->username = $req->username;
         $user->email = $req->email;

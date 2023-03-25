@@ -51,7 +51,9 @@
             <tbody v-if="users.length > 0">
                 <tr v-for="user in users" :key="user.id">
                     <td>{{ user.id }}</td>
-                    <td>{{ user.avator }}</td>
+                    <td>
+						<img v-bind:src="user.avator" width="100" height="100" alt="">
+					</td>
                     <td>{{ user.name }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>

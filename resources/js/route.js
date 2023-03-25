@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import store from './Store';
 // Importing all pages route
-import login from "./Layouts/Login.vue";
-import register from "./Layouts/Register.vue";
+import login from "./Layouts/Auth/Login.vue";
+import register from "./Layouts/Auth/Register.vue";
 import home from "./Layouts/Home.vue";
 import sale from "./Layouts/Sale.vue";
 

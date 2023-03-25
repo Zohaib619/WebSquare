@@ -37,7 +37,6 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" v-if="customer_id == ''" class="btn btn-primary" @click="storeCustomer">Add
                             Customer</button>
-
                         <button v-else type="button" class="btn btn-primary" @click="updateCustomer">Update</button>
                     </div>
                 </div>
