@@ -4,12 +4,16 @@ import store from './Store';
 import login from "./Layouts/Login.vue";
 import register from "./Layouts/Register.vue";
 import home from "./Layouts/Home.vue";
-import customer from "./Layouts/Customer.vue";
 import sale from "./Layouts/Sale.vue";
+
+// User
+import user from "./Layouts/User/index.vue";
+
+// Customer
+import customer from "./Layouts/Customer/index.vue";
 
 // Product  
 import product from "./Layouts/Product/index.vue";
-import productAdd from "./Layouts/Product/add.vue";
 
 // naming routes
 const routes = [
@@ -38,6 +42,15 @@ const routes = [
         }
     },
     {
+        path: "/user",
+        name: "User",
+        component: user,
+        meta: {
+            AuthToken: true
+        }
+    },
+    // product
+    {
         path: "/product",
         name: "Product",
         component: product,
@@ -45,14 +58,8 @@ const routes = [
             AuthToken: true
         }
     },
-    {
-        path: "/product/add",
-        name: "Product_Add",
-        component: productAdd,
-        meta: {
-            AuthToken: true
-        }
-    },
+    
+    // product end
     {
         path: "/sale",
         name: "Sale",
@@ -61,6 +68,7 @@ const routes = [
             AuthToken: true
         }
     },
+    // Customer
     {
         path: "/customer",
         name: "Customer",
@@ -69,6 +77,7 @@ const routes = [
             AuthToken: true
         }
     },
+    // Customer End
 ];
 
 

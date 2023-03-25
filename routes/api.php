@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{CustomerController,AuthController, ProductController};
+use App\Http\Controllers\Api\{CustomerController,AuthController, ProductController, UserController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,15 +26,25 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('register', 'register');
 });
 
+// User Route
+Route::controller(UserController::class)->group(function(){
+    Route::get('users', 'all_users');
+    Route::post('add-user', 'add_user');
+});
+
 // Customer Route
 Route::controller(CustomerController::class)->group(function(){
     Route::get('customers', 'all_customers');
-    Route::post('add-customer', 'add_customer');
+    Route::post('customer-add', 'add_customer');
+    Route::put('customer-update/{id}', 'update_customer');
+    Route::delete('customer-delete/{id}', 'delete_customer');
 });
 
 // Product Route
 Route::controller(ProductController::class)->group(function(){
     Route::get('products', 'all_products');
     Route::post('product-add', 'add_product');
-
+    Route::get('product/{id}/edit', 'edit_product');
+    Route::put('product-update/{id}', 'update_product');
+    Route::delete('product-delete/{id}', 'delete_product');
 });
