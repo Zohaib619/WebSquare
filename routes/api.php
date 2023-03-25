@@ -29,7 +29,8 @@ Route::controller(AuthController::class)->group(function(){
 // User Route
 Route::controller(UserController::class)->group(function(){
     Route::get('users', 'all_users');
-    Route::post('add-user', 'add_user');
+    Route::put('user-update/{id}', 'update_user');
+    Route::delete('user-delete/{id}', 'delete_user');
 });
 
 // Customer Route
