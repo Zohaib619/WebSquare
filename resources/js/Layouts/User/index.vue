@@ -49,20 +49,24 @@
             </thead>
 
             <tbody v-if="users.length > 0">
-                <tr v-for="user in users" :key="user.id">
+                <tr v-for="user in users" :key="user.id" class="align-middle">
                     <td>{{ user.id }}</td>
                     <td>
-						<img v-bind:src="user.avator" width="100" height="100" alt="">
-					</td>
+                        <img v-bind:src="user.avator" width="100" height="100" alt="">
+                    </td>
                     <td>{{ user.name }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
-                    <td class="d-flex justify-content-evenly">
-                        <button type="button" @click="editUser(user)" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            Edit
-                        </button>
-                        <button type="button" class="btn btn-danger ms-2" @click="deleteProduct(user.id)">Delete</button>
+                    <td>
+                        <div class="d-flex justify-content-evenly">
+
+                            <button type="button" @click="editUser(user)" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">
+                                Edit
+                            </button>
+                            <button type="button" class="btn btn-danger ms-2"
+                                @click="deleteProduct(user.id)">Delete</button>
+                        </div>
                     </td>
                 </tr>
             </tbody>
