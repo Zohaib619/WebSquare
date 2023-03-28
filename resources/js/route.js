@@ -4,7 +4,7 @@ import store from './Store';
 import login from "./Layouts/Auth/Login.vue";
 import register from "./Layouts/Auth/Register.vue";
 import home from "./Layouts/Home.vue";
-import sale from "./Layouts/Sale.vue";
+import sale from "./Layouts/Sale/index.vue";
 
 // User
 import user from "./Layouts/User/index.vue";

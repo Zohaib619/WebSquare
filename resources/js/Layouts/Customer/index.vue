@@ -66,14 +66,19 @@
                             data-bs-target="#staticBackdrop">
                             Edit
                         </button>
-                        <button type="button" class="btn btn-danger ms-2" @click="deleteProduct(customer.id)">Delete</button>
+                        <button type="button" class="btn btn-danger ms-2"
+                            @click="deleteProduct(customer.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
             <tbody v-else>
                 <tr>
                     <td colspan="5">
-                        <h4 class="text-center">Loading...</h4>
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </tbody>

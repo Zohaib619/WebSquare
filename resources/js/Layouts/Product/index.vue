@@ -41,7 +41,8 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" v-if="product_id == ''" class="btn btn-primary" @click="storeProduct">Add Product</button>
+						<button type="button" v-if="product_id == ''" class="btn btn-primary" @click="storeProduct">Add
+							Product</button>
 
 						<button v-else type="button" class="btn btn-primary" @click="updateProduct">Update</button>
 					</div>
@@ -74,15 +75,18 @@
 							data-bs-target="#staticBackdrop">
 							Edit
 						</button>
-						<button type="button" class="btn btn-danger ms-2"
-								@click="deleteProduct(product.id)">Delete</button>
+						<button type="button" class="btn btn-danger ms-2" @click="deleteProduct(product.id)">Delete</button>
 					</td>
 				</tr>
 			</tbody>
 			<tbody v-else>
 				<tr>
 					<td colspan="6">
-						<h4 class="text-center">Loading...</h4>
+						<div class="d-flex justify-content-center">
+							<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+						</div>
 					</td>
 				</tr>
 			</tbody>
@@ -160,8 +164,8 @@ export default {
 		}
 
 		// Delete Product
-		const deleteProduct = async (id)=>{
-			if(confirm("Do you want to delete this record?")){
+		const deleteProduct = async (id) => {
+			if (confirm("Do you want to delete this record?")) {
 				axios.delete(`api/product-delete/${id}`);
 				getProducts();
 			}

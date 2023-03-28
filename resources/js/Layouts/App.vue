@@ -24,6 +24,9 @@
                         <router-link class="nav-link " aria-current="page" to="/product">Product</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link class="nav-link " aria-current="page" to="/sale">Sale</router-link>
+                    </li>
+                    <li class="nav-item">
                         <a href="" class="nav-link text-danger" aria-current="page" @click="logout">Logout</a>
                     </li>
 

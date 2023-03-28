@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{CustomerController,AuthController, ProductController, UserController};
+use App\Http\Controllers\Api\{CustomerController,AuthController, ProductController, SaleController, UserController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +48,12 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('product/{id}/edit', 'edit_product');
     Route::put('product-update/{id}', 'update_product');
     Route::delete('product-delete/{id}', 'delete_product');
+});
+
+// Sale Route
+Route::controller(SaleController::class,)->group(function(){
+    Route::get("sales", "all_sales");
+    Route::post("sale-add", "add_sale");
+    Route::put("sale-update/{id}", "update_sale");
+    Route::delete("sale-delete/{id}", "delete_sale");
 });
